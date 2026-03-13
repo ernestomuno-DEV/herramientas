@@ -31,7 +31,7 @@ if archivo:
     f_fin = pd.to_datetime(fecha_fin_in)
     df[['Propietario', 'Plantel']] = df[['Propietario', 'Plantel']].astype(str)
     
-    cotizaciones_rango = df[df['Fecha de creación'].between(f_inicio, f_fin)]
+    cotizaciones_rango = df[df['Fecha de creación'].between(f_inicio, f_fin + pd.Timedelta(days=1))]
     
     if not cotizaciones_rango.empty:
    
