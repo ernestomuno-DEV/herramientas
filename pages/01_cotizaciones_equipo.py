@@ -4,12 +4,12 @@ import io
 import plotly.express as px
 
 
-st.set_page_config(page_title="Data Analytics Portal", page_icon="📈", layout="wide")
-st.title("📊 Portal de Inteligencia de Negocios")
+st.set_page_config(page_title="Reportes", page_icon="📈", layout="wide")
+st.title("📊 Portal de reportes")
 st.markdown("### Automatización de Reportes: Cotizaciones")
 st.write("---")
 
-archivo = st.file_uploader("Sube el Excel extraído del CRM", type=['xlsx'])
+archivo = st.file_uploader("Sube documento Excel", type=['xlsx'])
 
 if archivo:
 
@@ -41,7 +41,7 @@ if archivo:
         analisis_semana = analisis_semana.sort_values(by='Total', ascending=False)
         
 
-        st.subheader("Resumen de Actividad por Reclutador")
+        st.subheader("Resumen de cotizaciones por Reclutador")
         st.dataframe(
             analisis_semana.style.bar(
                 subset=['TRADICIONAL', 'EN LINEA'], 
@@ -53,7 +53,7 @@ if archivo:
         st.write("---")
         
 
-        st.subheader("Visualización de Participación por Plantel")
+        st.subheader("Visualización de cotizaciones")
         
 
         grafica_data = analisis_semana.drop(['Total', 'All'], axis=1, errors='ignore')
@@ -64,7 +64,7 @@ if archivo:
             grafica_data.reset_index(), 
             x='Propietario', 
             y=['TRADICIONAL', 'EN LINEA'], 
-            title="Distribución de Cotizaciones por Tipo de Plantel",
+            title="Distribución de Cotizaciones",
             labels={'value': 'Cotizaciones', 'variable': 'Tipo de Plantel'},
             color_discrete_map={'TRADICIONAL': '#003366', 'EN LINEA': '#00AEEF'},
             barmode='stack'
