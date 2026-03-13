@@ -40,8 +40,8 @@ if archivo:
        analisis_semana = analisis_semana.sort_values(by='Total', ascending=False)
     else:
        st.warning("⚠️ No se encontraron cotizaciones en el rango de fechas seleccionado.")
-
-
+    
+    analisis_semana = analisis_semana.astype(str)
 
     st.subheader("Resumen por Reclutador")
     st.dataframe(analisis_semana.style.background_gradient(cmap='Greens'))
