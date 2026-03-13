@@ -3,3 +3,4 @@ openpyxl
 streamlit
 altair<5
 matplotlib
+numpy<2.0.0
