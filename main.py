@@ -1,18 +1,16 @@
 import streamlit as st
 
-# 1. Configuración de la pestaña (Neutro y profesional)
+
 st.set_page_config(
     page_title="Portal de reportes",
     page_icon="📈",
     layout="wide"
 )
 
-# 2. Título principal
 st.title("📊 Portal de reportes")
 st.markdown("### Automatización de Reportes")
 st.write("---")
 
-# 3. Distribución de la Portada
 col1, col2 = st.columns([2, 1])
 
 with col1:
@@ -29,7 +27,6 @@ with col1:
     """)
 
 with col2:
-    # Espacio para un resumen rápido de capacidades
     st.metric(label="Módulos Disponibles", value="2", delta="Escalable")
     st.write("**Capacidades del Sistema:**")
     st.checkbox("Procesamiento de Archivos Excel", value=True, disabled=True)
@@ -38,7 +35,6 @@ with col2:
 
 st.write("---")
 
-# 4. Instrucciones de Uso (Genéricas)
 st.subheader("📖 Guía de Usuario")
 c1, c2, c3 = st.columns(3)
 
@@ -54,6 +50,5 @@ with c3:
     st.markdown("#### 3. Exportación")
     st.write("Visualiza los KPIs y descarga el resumen ejecutivo procesado en un nuevo archivo.")
 
-# 5. Pie de página minimalista
 st.write("---")
 st.caption("Desarrollado por Ernesto | Python 3.11 | Streamlit & Pandas Core")
